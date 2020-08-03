@@ -1,0 +1,96 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<xar:set name="recapurl">'<a href="http://www.google.com/recaptcha">reCAPTCHA</a>'</xar:set>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Overview</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+        <img src="#xarTplGetImage('admin.png', 'formantibot')#" alt="official icon" class="xar-module-icon" />
+            <h2>
+                    <xar:mlstring>What is it?</xar:mlstring>
+            </h2>
+                <p><em><xar:mlstring>Format Anti-Bot is a Xarigami Utility Module.</xar:mlstring></em>
+                    <xar:mlstring>The module secures forms from abuse by bot's by requiring translation and input of a simple numeric challenge question or image based text, sometimes known as CAPTCHA.
+                    The module can be used in conjunction with other Xarigami modules that support it either via hooks or through direct use of apis in the module.</xar:mlstring></p>
+                    <p><xar:mlstring>The following modules currently support FormAnti-Bot:</xar:mlstring></p>
+                    <ul>
+                         <li><xar:mlstring>DynamicData  - a core distribution module responsible for creation of your own content via dynamic data hooks and objects.</xar:mlstring></li>
+                        <li><xar:mlstring>Sitecontact module - a contact form module allowing multiple, custom contact forms, and optional saving of data.</xar:mlstring></li>
+                        <li><xar:mlstring>Comments module - a comments module with moderation and spam control features.</xar:mlstring></li>
+                        <li><xar:mlstring>xarBB  - a lightweight forum module that can be optioned up with various features via hooks.</xar:mlstring></li>
+                    </ul>
+                <h3>
+                    <xar:mlstring>How to use it?</xar:mlstring>
+               </h3>
+                <ul>
+                    <xar:set name="hookurl">#xarModURL('modules','admin','hooks',array('hook'=>'formantibot'))#</xar:set>
+                    <li>
+                        <a href="#$hookurl#"><xar:mlstring>Hook Formantibot</xar:mlstring></a><xar:mlstring> to the module in which  you wish to display the captcha.</xar:mlstring>
+                    </li>
+                    <li>
+
+                       <xar:set name="configurl">#xarModURL('formantibot','admin','modifyconfig')#</xar:set>
+                        <xar:mlstring> Choose the type of captcha you would like to use in the </xar:mlstring><a href="#$configurl#"><xar:mlstring>Modify Configuration page</xar:mlstring></a>.
+                        <xar:ml>
+                            <xar:mlstring>Currently image captcha, #(1) and simple numeric challenge question captcha are available.</xar:mlstring>
+                            <xar:mlvar>#$recapurl#</xar:mlvar>
+                        </xar:ml>
+                    </li>
+                    <li>
+                        <a href="#$configurl#"><xar:mlstring>Set configuration settings</xar:mlstring></a><xar:mlstring> in the Formantibot modify configuration page as you would like them.</xar:mlstring>
+                    </li>
+                </ul>
+                <p><strong><xar:mlstring>Developer notes:</xar:mlstring></strong>
+                <ol>
+                    <li>
+                        <xar:ml>
+                            <xar:mlstring>If you choose to use reCAPTCHA, you must sign up and get a public and private key for use at the #(1) site.</xar:mlstring>
+                             <xar:mlvar>#$recapurl#</xar:mlvar>
+                         </xar:ml>
+                    </li>
+                    <li>
+                      <xar:mlstring>
+                    In using the Formantibot hooks, it was necessary to call the usual create hook earlier than usual in the target module.
+                    We need to get the hook results (whether the code was valid or not) prior to creating a new item.
+                    If it is invalid code then like other invalid form variables, it is used to decide whether to return the user to the form.
+                    Thus we use a 'submit' hook that needs to be called in modules prior to the item creation.
+                    </xar:mlstring>
+                    </li>
+                </ol>
+                </p>
+                 <h3>
+                    <xar:mlstring>Included Blocks</xar:mlstring>
+                </h3>
+                <p>
+                    <xar:mlstring>None</xar:mlstring>
+                </p>
+                <h3>
+                    <xar:mlstring>Included Hooks</xar:mlstring>
+            </h3>
+                <p>
+                    <xar:mlstring>Display/new and submit hooks are supplied.</xar:mlstring>
+                </p>
+          <h3>
+            <xar:mlstring>Further Information</xar:mlstring>
+          </h3>
+          <p>
+            <xar:mlstring>Further information on the FormAnti-Bot module can be found at</xar:mlstring>
+          </p>
+          <ul>
+            <li><xar:mlstring>FormAnti-Bot Project page at</xar:mlstring> <a title="#xarML('FormAnti-Bot project page')#" href="http://xarigami.com/project/xarigami_formantibot">Xarigami Formantibot</a>.
+            </li>
+            <li><xar:mlstring>Related tutorials and documentation on FormAnti-Bot found at</xar:mlstring> <a href="http://xarigami.com/resources/" title="#xarML('Related documentation on FormAnti-Bot')#"><xar:mlstring>Xarigami Resources</xar:mlstring></a>
+            </li>
+          </ul>
+          <p class="xar-sub">
+            <strong>&nbsp;<xar:mlstring>FormAnti-Bot Module Overview</xar:mlstring></strong><br />&nbsp;<xar:mlstring>Revision</xar:mlstring> 1.1.1&#160; 2011-03-18
+          </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+Version 0.8.0 - Xarigami version 7 March 2010
+---------------
+* Update classes for php 5.3
+* Add recaptcha hook
+* Add modifyconfig option for Recaptcha key
+* Update IP check with xarigami including ipv4/ipv6
+
+Version 0.7.1 - Xarigami version 8 Dec 2010
+------------
+* Remove old code in secureimage filling db with modvars
+* Add core dependency info for xarigami
+
+Version 0.7.0 - Xarigami version 28 Oct 2010
+------------
+* fab-000529  "Case sensitive" shown when "Use case insensitive checking" checked
+* fab-000530    PHP 5.3 compatibility - eregi deprecated in rgb2hex2rgb.php function
+* Updated to include files to retain compatibility with Xaraya
+
+
+Version 0.6.3 - Xarigami version 12 Oct 2009
+------------
+* fab-000473  Bug Problem when both Formantibot and Categories hook to articles
+
+Version 0.6.2  - Xarigami version 27 Dec 2008
+------------
+ * fab-000368  New feature  eliminate ambiguous characters
+ * fab-000376  New feature Case insensitive option for captcha
+
+
+Version 0.6.1  - Xarigami version 27 Dec 2008
+--------------
+- added ability to select true type font for use  and specify font directory
+- added additional true type fonts
+- added numeric challenge captcha
+
+
+Version 0.6.0  - Xarigami version 17 Dec 2008
+--------------
+Jo Dalle Nogare icedlava@2skies.com
+
+
+Version 0.1.0 - Initial release 1 August 2006
+--------------
+by Carl P. Corliss

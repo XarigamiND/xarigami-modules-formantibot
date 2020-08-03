@@ -1,0 +1,13 @@
+Carl P. Corliss    - Original Author
+
+Jo Dalle Nogare    - added hooks for new/display and create,
+                   - admin modify config  page and vars
+                   - added simple numeric challenge captcha
+                   - added recaptcha
+                   - documentation
+
+pradeep  http://www.go4expert.com Original rgb2hex2rgb function
+
+Black (Michael Ritter) Fixes for :
+                   - fab-000529  "Case sensitive" shown when "Use case insensitive checking" checked
+                   - fab-000530    PHP 5.3 compatibility - eregi deprecated in rgb2hex2rgb.php function

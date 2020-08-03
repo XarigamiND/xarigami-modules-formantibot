@@ -1,0 +1,79 @@
+<xar:if condition="isset($usecaptcha) and $usecaptcha eq 1 and $captchatype ne 3">
+<xar:base-include-javascript module="base" filename="formcheck.js" position="head"/>
+<xar:comment>jojo - this is ugly but we cannot assume the js arrays are declared previously,
+and redeclaring will remove validation for eg subject or body text</xar:comment>
+<script type="text/javascript">
+<!--
+    try
+      {
+        fieldRequired.splice(1,0,"antibotcode");
+        fieldDescription.splice(1,0,"Anti-Bot Code");
+      }
+    catch(err)
+      {
+    var fieldRequired = Array("antibotcode");
+    var fieldDescription = Array("Anti-bot code");
+      }
+//-->
+</script>
+</xar:if>
+<xar:if condition="isset($usecaptcha) and $usecaptcha eq 1 and $captchatype eq 1">
+    <div class="xar-form-input-wrapper">
+        <label for="antibotimage" class="xar-form-label" title="#xarML('Enter the value as seen in the image (if you can not read the image, click on it to load a new one).')#">
+            <xar:mlstring>Anti-Bot Code</xar:mlstring>
+        </label>
+        <p>
+            <img id="antibotimage" name="antibotimage"
+                src="#xarModURL('formantibot', 'user', 'image')#"
+                onclick="this.src = this.src + '?' + (new Date()).getTime(); return true;" alt="antibotimage" title="#xarML('secure antibot image')#"/>
+        </p>
+        <span class="xar-form-label">&#160;</span>
+        <p>
+             <xar:mlstring>Can't read it? Click the image again.</xar:mlstring>
+        </p>
+        <xar:if condition="isset($antibotinvalid) AND $antibotinvalid">
+           <span class="xar-form-label">&#160;</span>
+           <p class="xar-error xar-clear-left ">
+                <xar:mlstring>Anti-spam code is incorrect, please try again</xar:mlstring>
+            </p>
+        </xar:if>
+    </div>
+    <div class="xar-form-input-wrapper">
+        <label for="antibotcode" class="xar-clear-left xar-form-label" >
+            <xar:mlstring>Enter Anti-spam Code</xar:mlstring>
+        </label>
+        <p>
+            <input type="text" name="antibotcode" id="antibotcode" size="10" value="" maxlength="10"  />&#160;
+            <xar:if condition="$caseinsensitive">
+                 (<xar:mlstring>case insensitive</xar:mlstring>)
+            <xar:else />
+                 (<xar:mlstring>case sensitive</xar:mlstring>)
+            </xar:if>
+        </p>
+    </div>
+<xar:elseif condition="isset($usecaptcha) and $usecaptcha eq 1 and $captchatype eq 2" />
+  <div class="xar-form-input-wrapper">
+       <p class="xar-form-input-wrapper-after"><xar:mlstring>Please enter the answer to the question below (anti spam protection).</xar:mlstring></p>
+        <label for="antibotcode" class="xar-clear-left xar-form-label" >
+            <xar:set name="numbertest">#xarModFunc('formantibot', 'user', 'number')#</xar:set>
+              #$numbertest#
+        </label>
+            <input type="text" name="antibotcode" id="antibotcode" size="10" value="" maxlength="10"  />
+    </div>
+        <xar:if condition="isset($antibotinvalid) AND $antibotinvalid">
+           <span class="xar-form-label">&#160;</span>
+           <p class="xar-error xar-clear-left ">
+                <xar:mlstring>Answer was incorrect, please try again</xar:mlstring>
+            </p>
+        </xar:if>
+<xar:elseif condition="isset($usecaptcha) and $usecaptcha eq 1 and $captchatype eq 3" />
+    <div class="xar-form-input-wrapper-after">
+    #$recaptcha#
+    </div>
+    <xar:if condition="isset($antibotinvalid) AND $antibotinvalid">
+           <span class="xar-form-label">&#160;</span>
+           <p class="xar-error xar-clear-left ">
+                <xar:mlstring>Code was incorrect, please try again</xar:mlstring>
+            </p>
+        </xar:if>
+</xar:if>
