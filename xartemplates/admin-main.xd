@@ -83,10 +83,8 @@
             <xar:mlstring>Further information on the FormAnti-Bot module can be found at</xar:mlstring>
           </p>
           <ul>
-            <li><xar:mlstring>FormAnti-Bot Project page at</xar:mlstring> <a title="#xarML('FormAnti-Bot project page')#" href="http://xarigami.com/project/xarigami_formantibot">Xarigami Formantibot</a>.
-            </li>
-            <li><xar:mlstring>Related tutorials and documentation on FormAnti-Bot found at</xar:mlstring> <a href="http://xarigami.com/resources/" title="#xarML('Related documentation on FormAnti-Bot')#"><xar:mlstring>Xarigami Resources</xar:mlstring></a>
-            </li>
+            <li><a href="http://xarigami.org/project/xarigami_formantibot"><xar:mlstring>Xarigami Formantibot project page</xar:mlstring></a></li>
+            <li><a href="http://xarigami.org/contrails/displayproject/fab"><xar:mlstring>Xarigami Formantibot issue tracker</xar:mlstring></a></li>
           </ul>
           <p class="xar-sub">
             <strong>&nbsp;<xar:mlstring>FormAnti-Bot Module Overview</xar:mlstring></strong><br />&nbsp;<xar:mlstring>Revision</xar:mlstring> 1.1.1&#160; 2011-03-18
