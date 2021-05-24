@@ -1,4 +1,4 @@
-# Xarigami Formantibot Module
+# XarigamiND Formantibot Module
 
 Format Anti-Bot module secures forms from abuse by bot's by requiring translation 
 and input of a simple numeric challenge question or image based text, also known as CAPTCHA.
